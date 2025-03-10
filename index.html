@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Hero Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #0d1b2a;
+            color: white;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: #0d1b2a;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .logo img {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #ff914d;
+        }
+        .resume-btn {
+            background: none;
+            border: 1px solid #ff914d;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .resume-btn:hover {
+            background: #ff914d;
+            color: #0d1b2a;
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 50px;
+            max-width: 1500px;
+            margin: auto;
+            border: solid black;
+            background-color: #0d1b2a;
+        }
+        .hero-text {
+            max-width: 50%;
+            color: #ddd;
+        }
+        .hero h1 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .hero span {
+            color: #ff914d;
+            font-weight: bold;
+        }
+        .hero p {
+            color: #c9d1d9;
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            background: gray;
+            border-radius: 50%;
+            margin-left: 900px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text {
+                max-width: 100%;
+            }
+            .profile-img {
+                margin-top: 20px;
+            }
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                margin-top: 10px;
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #fbead2, #e5e6fc);
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+        .skills-section {
+            max-width: 800px;
+            margin: auto;
+        }
+        .skills-section h2 {
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .skills-section h2 span {
+            color: #f4a261;
+        }
+        .skills-section p {
+            margin: 10px 0 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .skill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #f8f8f8;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ddd;
+            transition: 0.3s;
+        }
+        .skill:hover {
+            background: #f4a261;
+            color: white;
+        }
+        .skill img {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .skills-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #fbead2, #e5e6fc);
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+        .progress-section {
+            max-width: 900px;
+            margin: auto;
+        }
+        .progress-section h2 {
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .progress-section h2 span {
+            color: #f4a261;
+        }
+        .progress-section p {
+            margin: 10px 0 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .linkedin-btn {
+            display: inline-block;
+            background: #f4a261;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0 30px;
+            font-size: 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .linkedin-btn:hover {
+            background: #e76f51;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .video-card {
+            background: white;
+            width: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+        .video-thumbnail {
+            background: #d3d3d3;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e76f51;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .video-info {
+            padding: 10px;
+            text-align: left;
+        }
+        .video-info small {
+            font-size: 12px;
+            color: gray;
+        }
+        .video-info h4 {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .video-info p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .video-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #fbead2, #e5e6fc);
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+        .projects-section {
+            max-width: 1000px;
+            margin: auto;
+        }
+        .projects-section h2 {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .projects-section p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .project-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .project-card {
+            background: white;
+            width: 280px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-image {
+            background: url('https://via.placeholder.com/280x180') center/cover no-repeat;
+            height: 180px;
+        }
+        .project-info {
+            padding: 15px;
+            text-align: left;
+        }
+        .project-info h3 {
+            font-size: 16px;
+            color: #f4a261;
+            margin-bottom: 5px;
+        }
+        .project-info h4 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .project-info p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #fbead2, #e5e6fc);
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+        .education-section {
+            max-width: 1000px;
+            margin: auto;
+        }
+        .education-section h2 {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .education-section p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+        }
+        .education-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+        .education-card:hover {
+            transform: translateY(-5px);
+        }
+        .education-info {
+            text-align: left;
+        }
+        .education-info h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .education-info p {
+            font-size: 14px;
+            color: #666;
+        }
+        .education-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #eee;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .education-container {
+                grid-template-columns: 1fr;
+            }
+        }
+.highlight{
+    color: #e76f51;
+}
+#contact {
+    background: linear-gradient(90deg, #000000, #042c37);
+    color: white;
+    padding: 40px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+input, textarea {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    padding: 10px;
+    background: yellow;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: orange;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://www.explorin.io/assets/explorin-new-logo-CCL0znd9.png" alt="Logo">
+           <h2 class="highlight" > Explorin Academy</h2> 
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Progress</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <button class="resume-btn">Resume</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <div class="profile-img"></div>
+            <h1>Hi, I am Mr Assignment</h1>
+            <p>An integral part of your success at <span>Explorin Academy</span></p>
+            <p>A dedicated student passionate about learning and technology.</p>
+     
+    </section>
+    <div class="skills-section">
+        <h2>My <span>Skills</span></h2>
+        <p>Here are some of my skills on which I have been working on for the past 2 years.</p>
+        <div class="skills-container">
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/528/528260.png" alt="icon"> Data Science</div>
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/1048/1048940.png" alt="icon"> Machine Learning</div>
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" alt="icon"> HTML</div>
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" alt="icon"> CSS</div>
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919828.png" alt="icon"> JavaScript</div>
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" alt="icon"> React</div>
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="icon"> Node.js</div>
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="icon"> MongoDB</div>
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/921/921567.png" alt="icon"> SQL</div>
+            <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="icon"> Firebox</div>
+        </div>
+    </div>
+    <div class="progress-section">
+        <h2>My Video <span>Progress</span></h2>
+        <p>Here is a quick demo of my progress so far in Web Development!</p>
+        <a href="#" class="linkedin-btn">Visit my LinkedIn</a>
+        
+        <div class="video-container">
+            <div class="video-card">
+                <div class="video-thumbnail">YouTube Video</div>
+                <div class="video-info">
+                    <small>Day 1</small>
+                    <h4>Topic 1</h4>
+                    <p>With coach Mr. XYZ</p>
+                </div>
+            </div>
+            
+            <div class="video-card">
+                <div class="video-thumbnail">YouTube Video</div>
+                <div class="video-info">
+                    <small>Day 2</small>
+                    <h4>Topic 2</h4>
+                    <p>With coach Mr. XYZ</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail">YouTube Video</div>
+                <div class="video-info">
+                    <small>Day 3</small>
+                    <h4>Topic 3</h4>
+                    <p>With coach Mr. XYZ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="projects-section">
+        <h2>Projects</h2>
+        <p>I have worked on a wide range of projects. Here are some of my projects.</p>
+
+        <div class="project-container">
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-info">
+                    <h3>Project Name</h3>
+                    <h4>About the Project</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Augue diam, quam euismod hac in id mauris.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-info">
+                    <h3>E-commerce Website</h3>
+                    <h4>About the Project</h4>
+                    <p>Developed a responsive online shopping platform.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-info">
+                    <h3>Portfolio Website</h3>
+                    <h4>About the Project</h4>
+                    <p>A personal portfolio showcasing my skills and projects.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="education-section">
+        <h2>Education</h2>
+        <p>My education has been a journey of self-discovery and growth. Here are some details.</p>
+
+        <div class="education-container">
+            <div class="education-card">
+                <div class="education-info">
+                    <h3>Explorin Academy</h3>
+                    <p>2023 - 2024</p>
+                    <p>BTech | Computer Science</p>
+                </div>
+                <div class="education-icon"></div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-info">
+                    <h3>College Name</h3>
+                    <p>2023 - 2024</p>
+                    <p>BE | Computer Science</p>
+                </div>
+                <div class="education-icon"></div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-info">
+                    <h3>School Name</h3>
+                    <p>2023 - 2024</p>
+                    <p>12th</p>
+                </div>
+                <div class="education-icon"></div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-info">
+                    <h3>School Name</h3>
+                    <p>2023 - 2024</p>
+                    <p>11th</p>
+                </div>
+                <div class="education-icon"></div>
+            </div>
+        </div>
+    </div>
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
